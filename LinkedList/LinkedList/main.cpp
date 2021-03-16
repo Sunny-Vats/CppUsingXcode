@@ -102,6 +102,15 @@ void LinkedList::display() {
     cout << "NULL" << endl;
 }
 
+int LinkedList::count() {
+    node *q = START;
+    int c = 0;
+    while( q != NULL ) {
+        c++;
+        q = q -> next;
+    }
+    return c;
+}
 LinkedList::~LinkedList() {
     node *q;
     if( START == NULL )
@@ -121,11 +130,12 @@ int main() {
     obj.append(5);
     
     obj.display();
+    cout << "Total elements in LinkedList: " << obj.count() << endl;
     cout << endl;
     obj.addAtBeg(0);
     obj.addAfer(2, 2);
     obj.display();
-    
+    cout << "Total elements in LinkedList: " << obj.count() << endl;
     
     return 0;
 }
