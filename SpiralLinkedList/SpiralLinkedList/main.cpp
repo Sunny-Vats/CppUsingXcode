@@ -87,11 +87,14 @@ void LinkedList::spiralList() {
         cout << HEAD -> data << " --> ";
         HEAD = HEAD -> next;
     }
+    if( NewHEAD != NULL ) {
+        cout << NewHEAD -> data << " --> ";
+    }
     cout << "NULL" << endl;
 }
 
 int main() {
-    int arr[] = {1,3,5,7,9,14,19,20};
+    int arr[] = {1,3,5,7,9,14,19,20,33,67,89,34};
     LinkedList obj;
     for( int i=0; i < sizeof(arr)/sizeof(arr[0]); i++ ) {
         obj.createList(arr[i]);
