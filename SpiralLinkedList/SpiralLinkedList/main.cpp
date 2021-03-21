@@ -44,18 +44,20 @@ void LinkedList::createList(int element) {
 }
 
 int LinkedList::lengthOfList() {
+    Node *temp = HEAD;
     int count = 0;
-    while( HEAD != NULL ) {
-        HEAD = HEAD -> next;
+    while( temp != NULL ) {
         count++;
+        temp = temp -> next;
     }
     return count;
 }
 
 void LinkedList::display() {
-    while( HEAD != NULL ) {
-        cout << HEAD -> data << " --> ";
-        HEAD = HEAD -> next;
+    Node *temp = HEAD;
+    while( temp != NULL ) {
+        cout << temp -> data << " --> ";
+        temp = temp -> next;
     }
     cout << "NULL" << endl;
 }
@@ -75,7 +77,11 @@ void LinkedList::spiralList() {
     HEAD = temp;
     Node *NewHEAD = new Node;
     NewHEAD = current;
-    while( NewHEAD ) {
+    /**
+     *NULL <----- 1 -----> 2 ----> 3 -----> 4 -----> 5 -----> null
+     * |current                  |  mid
+     */
+    while( HEAD != NULL ) {
         cout << NewHEAD -> data << " --> ";
         NewHEAD = NewHEAD -> next;
         cout << HEAD -> data << " --> ";
@@ -85,7 +91,7 @@ void LinkedList::spiralList() {
 }
 
 int main() {
-    int arr[] = {1,3,5,7,9,14,19,22,23};
+    int arr[] = {1,3,5,7,9,14,19,20};
     LinkedList obj;
     for( int i=0; i < sizeof(arr)/sizeof(arr[0]); i++ ) {
         obj.createList(arr[i]);
