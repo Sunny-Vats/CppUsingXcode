@@ -77,10 +77,7 @@ void LinkedList::spiralList() {
     HEAD = temp;
     Node *NewHEAD = new Node;
     NewHEAD = current;
-    /**
-     *NULL <----- 1 -----> 2 ----> 3 -----> 4 -----> 5 -----> null
-     * |current                  |  mid
-     */
+    
     while( HEAD != NULL ) {
         cout << NewHEAD -> data << " --> ";
         NewHEAD = NewHEAD -> next;
