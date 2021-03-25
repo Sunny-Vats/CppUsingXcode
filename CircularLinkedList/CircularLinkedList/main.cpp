@@ -48,26 +48,37 @@ bool CircularLinked::search(int element, node **pre, node **current) {
 }
 
 bool CircularLinked::delNode(int element) {
-    node *temp = LAST;
-    node **current = &(temp -> next), **pre = &temp;
-    search(element, pre, current);
-    return ((*current) -> data == element);
+    node *current = LAST -> next, *pre = LAST;
+    bool found = search(element, &pre, &current);
+    
+    if(found) {
+        pre -> next  = current -> next;
+        delete current;
+    }
+    else if(LAST -> data == element) {
+        current -> next = LAST -> next;
+        LAST = current;
+        delete LAST;
+        found = true;
+    }
+    else cout << "Element not found" << endl;
+    return found;
 }
 
 void CircularLinked::display() {
-    node *current = LAST -> next;
-    node *temp = current;
+    node *tail = LAST -> next;
+    node **temp = &tail;
     cout << ".-->";
     do {
-        cout << temp -> data << " ---> ";
-        temp = temp -> next;
-    } while(temp != LAST);
-    cout << temp -> data << " <--." << endl;
-    temp = LAST -> next;
+        cout << (*temp) -> data << " ---> ";
+        *temp = (*temp) -> next;
+    } while(*temp != LAST);
+    cout << (*temp) -> data << " <--." << endl;
+    *temp = LAST -> next;
     cout << " \\___";
-    while(temp != LAST) {
+    while(*temp != LAST) {
         cout << "________";
-        temp = temp -> next;
+        *temp = (*temp) -> next;
     }
     cout << "____/" << endl;
 }
@@ -78,9 +89,9 @@ int main() {
     obj.addNode(i);
     obj.display();
     cout << endl;
-    int element = 20;
+    int element = 12;
     bool result = obj.delNode(element);     // Not completed yet
-    cout << "Delete element " << element << " result: " << result << endl;
+    if (result) cout << "Delete element " << element << " result: Deleted" << endl;
     /**
      * .--> 12  --->  13  --->  14  --->  15  --->  16  --->  17  --->  18  --->  19 - -->  20  <--.
      * \______________________________________________________________/
