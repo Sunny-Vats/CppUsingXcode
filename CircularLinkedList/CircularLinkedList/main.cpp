@@ -16,7 +16,7 @@ public:
     CircularLinked();
     void addNode(int element);
     bool search(int element, node **previous, node **current);   // Implemented completely
-    bool delNode(int element);                                   // Not completed.. Need help
+    bool delNode(int element);
     void display();
 };
 
@@ -90,15 +90,15 @@ int main() {
     obj.display();
     cout << endl;
     int element = 12;
-    bool result = obj.delNode(element);     // Not completed yet
+    bool result = obj.delNode(element);
     if (result) cout << "Delete element " << element << " result: Deleted" << endl;
     /**
      * .--> 12  --->  13  --->  14  --->  15  --->  16  --->  17  --->  18  --->  19 - -->  20  <--.
-     * \______________________________________________________________/
+     * \__________________________________________________________________________________________/
      * ^ Output ^
      * Delete element 20 result: 1
      * Program ended with exit code: 0
      */
-    obj.display();                          // Error in display
+    obj.display();
     return 0;
 }
