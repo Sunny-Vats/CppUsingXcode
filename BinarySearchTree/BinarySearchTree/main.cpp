@@ -4,7 +4,6 @@
 //
 //  Created by Sunny Vats on 26/03/21.
 //
-
 #include <iostream>
 using namespace std;
 
@@ -17,8 +16,10 @@ class BinarySearchTree {
 public:
     void addNode();
     void traverse();
-    
+    void addNodeBeg();
+    void addNodeEnd();
 };
+
 int main() {
     
     return 0;
