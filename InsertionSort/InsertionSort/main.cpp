@@ -16,9 +16,11 @@ int main() {
     int len = sizeof(arr)/sizeof(int);
     cout << "Array to be sorted: ";
     display(arr, len);
+    cout << endl;
     insertionSort(arr, len);
     cout << "Sorted array: " << endl;
     display(arr, len);
+    cout << endl;
     return 0;
 }
 
@@ -40,5 +42,5 @@ void display(int *arr, int len) {
         cout << *(arr+i) << " ";
         i++;
     }
-    cout << endl << "±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±" << endl;
+    cout << endl << "±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±±";
 }
